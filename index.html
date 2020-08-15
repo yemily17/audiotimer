@@ -1,33 +1,66 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <title>basic.html</title>
-        <meta charset = "UTF-8" />
-        <link rel="stylesheet" href="style.css" />
-        
-        .button1 {background-color: #4CAF50;} /* Green */
-        .button2 {background-color: #008CBA;} /* Blue */
-        </style>
-    </head>
-    <body>
-        <h1>Level One Headline</h1>
-        <h2>Level Two Headline</h2>
-        <h3>Level Three Headline</h3>
-        <h4>Level Four Headline</h4>
-        <h5>Level Five Headline</h5>
-        <h6>Level Six Headline</h6>
-        <p>
-            This is a paragraph.
-        </p>
-        <a href="firstlink.html">Link 1</a>
-        <button class="button button1">Green</button>
-        <button class="button button2">Blue</button>
-    </body>
-    <form action="/action_page.php" method="get">
-        <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname"><br><br>
-        <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname"><br><br>
-        <input type="submit" value="Submit">
-      </form>
+<html lang="en">
+
+<head>
+    <title>basic.html</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Audio Timer</h1>
+    
+    <!-- <p id="demo"></p> -->
+
+    <script>
+        // Set the date we're counting down to
+            
+            <p id="demo"></p>
+    </script>
+    <p>
+        Welcome to the online audio timer. Customize your timer below and press Start Timer to begin!
+    </p>
+    <input type="radio" name="mode" value="timer" id=mode_timer> Timer Mode: Announces time elasped from start
+    <input type="radio" name="mode" value="time" id=mode_time> Time Mode: Announces current time<br>
+    <input type="number" name="frequency" value="freq"> Frequency of announcements (minutes)<br>
+    <input type="button" name="submit" value="start"> Start Timer
+    <script>
+        if (document.getElementById('mode_time').checked) {
+            console.log("Yes");
+            var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function () {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Output the result in an element with id="demo"
+                document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                    + minutes + "m " + seconds + "s ";
+
+                // If the count down is over, write some text 
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        } else if (document.getElementById('mode_timer').checked) {
+
+        }
+    </script>
+</body>
+
 </html>
